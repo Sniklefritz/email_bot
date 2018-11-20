@@ -1,0 +1,2 @@
+class EmailBatch < ApplicationRecord
+end
