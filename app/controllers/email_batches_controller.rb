@@ -3,6 +3,9 @@ class EmailBatchesController < ApplicationController
   end
 
   def create
-    render plain: params[:email_batch].inspect
+    @email_batch = EmailBatch.new(params[:email_batch])
+
+    @email_batch.save
+    redirect_to @email_batch
   end
 end
