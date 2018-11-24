@@ -1,6 +1,6 @@
 class EmailBatchesController < ApplicationController
   def index
-    @email_batch = EmailBatches.all
+    @email_batch = EmailBatch.all
   end
 
   def show

@@ -1,0 +1,17 @@
+<h1>Listing Email Batches</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @email_batch.each do |email_batches| %>
+    <tr>
+      <td><%= email_batches.title %></td>
+      <td><%= email_batches.text %></td>
+      <td><%= link_to 'Show', email_batch_path(email_batches) %></td>
+    </tr>
+    <% end %>
+</table>
