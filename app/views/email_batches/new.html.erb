@@ -1,33 +1,5 @@
 <h1>New Email Batch</h1>
 
-<%= form_with scope: :email_batch, url: email_batches_path, local: true do |form| %>
-
-  <% if @email_batch.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@email_batch.errors.count, "error") %>
-      prohibited this email batch from being saved:
-    </h2>
-    <ul>
-      <% @email_batch.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', email_batches_path %>
