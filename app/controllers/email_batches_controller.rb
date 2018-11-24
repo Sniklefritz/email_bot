@@ -11,6 +11,10 @@ class EmailBatchesController < ApplicationController
     @email_batch = EmailBatch.new
   end
 
+  def edit
+    @email_batch = EmailBatch.find(params[:id])
+  end
+
   def create
     @email_batch = EmailBatch.new(email_batch_params)
 
@@ -18,6 +22,16 @@ class EmailBatchesController < ApplicationController
       redirect_to @email_batch
     else
       render 'new'
+    end
+  end
+
+  def update
+    @email_batch = EmailBatch.find(params[:id])
+
+    if @email_batch.update(email_batch_params)
+      redirect_to @email_batch
+    else
+      render 'edit'
     end
   end
 
