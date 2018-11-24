@@ -1,4 +1,7 @@
 class EmailBatchesController < ApplicationController
+  def index
+    @email_batch = EmailBatches.all
+  end
 
   def show
     @email_batch = EmailBatch.find(params[:id])
