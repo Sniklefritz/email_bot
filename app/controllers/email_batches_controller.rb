@@ -8,13 +8,17 @@ class EmailBatchesController < ApplicationController
   end
 
   def new
+    @email_batch = EmailBatch.new
   end
 
   def create
     @email_batch = EmailBatch.new(email_batch_params)
 
-    @email_batch.save
-    redirect_to @email_batch
+    if @email_batch.save
+      redirect_to @email_batch
+    else
+      render 'new'
+    end
   end
 
   private
