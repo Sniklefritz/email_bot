@@ -35,6 +35,13 @@ class EmailBatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @email_batch = EmailBatch.find(params[:id])
+    @email_batch.destroy
+
+    redirect_to email_batches_path
+  end
+
   private
   def email_batch_params
     params.require(:email_batch).permit(:title, :text)
