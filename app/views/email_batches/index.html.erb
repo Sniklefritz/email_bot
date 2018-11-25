@@ -1,0 +1,21 @@
+<h1>Listing Email Batches</h1>
+
+<%= link_to 'New Email Batch', new_email_batch_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @email_batch.each do |email_batches| %>
+    <tr>
+      <td><%= email_batches.title %></td>
+      <td><%= email_batches.text %></td>
+      <td><%= link_to 'Show', email_batch_path(email_batches) %></td>
+      <td><%= link_to 'Edit', edit_email_batch_path(email_batches) %></td>
+      <td><%= link_to 'Destroy', email_batch_path(email_batches), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+    </tr>
+    <% end %>
+</table>

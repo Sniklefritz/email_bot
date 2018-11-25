@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @email_batch.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @email_batch.text %>
+</p>
+
+<%= link_to 'Edit', edit_email_batch_path(@email_batch) %> |
+<%= link_to 'Back', email_batches_path %>
