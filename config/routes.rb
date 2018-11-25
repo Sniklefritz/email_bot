@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :email_batches
+  resources :email do
+    collection { post :import }
+  end
 
   root 'welcome#index'
 
