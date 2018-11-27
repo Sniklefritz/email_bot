@@ -1,6 +1,6 @@
 require 'csv'
 class Email < ApplicationRecord
-  belongs_to :email_batch
+  belongs_to :email_batch, optional: true
   # a class method import, with file passed through as an argument
   def self.import(file)
     # a block that runs through a loop in our CSV data
