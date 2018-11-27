@@ -5,15 +5,19 @@
       <th>Email</th>
     </tr>
   </thead>
-  <tbody>
-    <% @emails.each do |email| %>
-      <tr>
-        <td><%= email.name %></td>
-        <td><%= email.email %></td>
-      </tr>
-    <% end %>
-  </tbody>
+
+  <% if @emails %>
+    <tbody>
+      <% @emails.each do |email| %>
+        <tr>
+          <td><%= email.name %></td>
+          <td><%= email.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
 </table>
+
 
 <div>
   <h4>
