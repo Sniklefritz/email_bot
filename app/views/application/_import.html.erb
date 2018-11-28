@@ -21,7 +21,7 @@
 
 <div>
   <h4>
-    <%= form_tag new_email_batch_url, multipart: true do %>
+    <%= form_tag import_email_index_path, multipart: true do %>
       <%= file_field_tag :file %>
       <%= submit_tag "Import CSV" %>
     <% end %>

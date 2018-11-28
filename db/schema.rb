@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_222619) do
+ActiveRecord::Schema.define(version: 2018_11_28_000653) do
 
   create_table "email_batches", force: :cascade do |t|
-    t.string "title"
+    t.string "subject"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "campaign_name"
   end
 
   create_table "emails", force: :cascade do |t|
