@@ -1,6 +1,12 @@
+require 'pry'
 class EmailBatchesController < ApplicationController
   def index
     @email_batch = EmailBatch.all
+  end
+
+  def import
+    Email.import(params[:file])
+    #redirect_to email_index_path, notice: "Email Data imported!"
   end
 
   def show
@@ -19,6 +25,10 @@ class EmailBatchesController < ApplicationController
     @email_batch = EmailBatch.new(email_batch_params)
 
     if @email_batch.save
+      # take new email batch and use the id when creating the Email
+      email_batch_id = @email_batch.id
+      Email.import(params[:email_batch][:file], email_batch_id)
+      # records from the spreadsheet
       redirect_to @email_batch
     else
       render 'new'
@@ -43,7 +53,8 @@ class EmailBatchesController < ApplicationController
   end
 
   private
+
   def email_batch_params
-    params.require(:email_batch).permit(:title, :text)
+    params.require(:email_batch).permit(:campaign_name, :subject, :text)
   end
 end
