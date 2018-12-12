@@ -13,5 +13,30 @@
   <%= @email_batch.text %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <td>
+        Name:
+      </td>
+      <td>
+        Email:
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @email_batch.emails.each do |email| %>
+      <tr>
+        <td>
+          <%= email.name %>
+        </td>
+        <td>
+          <%= email.email %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_email_batch_path(@email_batch) %> |
 <%= link_to 'Back', email_batches_path %>
