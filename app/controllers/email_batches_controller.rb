@@ -52,6 +52,18 @@ class EmailBatchesController < ApplicationController
     redirect_to email_batches_path
   end
 
+  def deliver_emails
+    @email_batch = EmailBatch.find(params[:email_batch_id])
+
+    @email_batch.emails.each do |email|
+      UserMailer.welcome_email(email, @email_batch.subject, @email_batch.text).deliver_now
+
+      sleep rand(5)
+    end
+
+    redirect_to email_batch_path(@email_batch)
+  end
+
   private
 
   def email_batch_params

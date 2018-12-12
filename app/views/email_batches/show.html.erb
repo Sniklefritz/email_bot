@@ -40,3 +40,7 @@
 
 <%= link_to 'Edit', edit_email_batch_path(@email_batch) %> |
 <%= link_to 'Back', email_batches_path %>
+
+<%= form_tag email_batch_deliver_emails_path(@email_batch) do |form| %>
+  <button type="submit">Send Emails</button>
+<% end %>
