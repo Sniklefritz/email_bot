@@ -8,6 +8,10 @@ class Email < ApplicationRecord
     CSV.foreach(file.path, headers: true) do |row|
       new_hash = {}
       row.to_hash.each do |k,v|
+        if k == "Name" && !v
+          v = "No Name"
+        end
+
         new_hash.merge!({k.downcase => v.downcase})
       end
       # creates a user for each row in the csv file
